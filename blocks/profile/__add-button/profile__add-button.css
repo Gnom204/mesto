@@ -7,4 +7,18 @@
     background-image: url(../../../images/svg/plus.svg);
     background-repeat: no-repeat;
     background-position: center;
+    transition: opacity 1s ease;
+    opacity: 1;
+}
+
+.profile__add-button:hover {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+@media screen and (max-width:696px) {
+    .profile__add-button {
+        width: 282px;
+        margin: auto
+    }
 }

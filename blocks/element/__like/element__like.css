@@ -1,3 +1,12 @@
 .element__like {
+    width: 22px;
+    height: 19px;
     margin: 0 20px 0 0;
+    transition: opacity 1s ease;
+    object-fit: contain;
+}
+
+.element__like:hover {
+    opacity: 60%;
+    cursor: pointer;
 }
