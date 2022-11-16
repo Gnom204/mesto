@@ -1,0 +1,17 @@
+.popup__save-button {
+    display: flex;
+    width: 100%;
+    background-color: black;
+    height: 50px;
+    border-radius: 2px;
+    justify-content: center;
+    transition: opacity 1s ease;
+    opacity: 1;
+    color: white;
+    align-items: center;
+}
+
+.popup__save-button:hover {
+    opacity: 80%;
+    cursor: pointer;
+}

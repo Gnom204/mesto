@@ -1,0 +1,9 @@
+.popup__zone {
+    margin: 0 36px;
+}
+
+@media screen and (max-width:696px) {
+    .popup__zone {
+        margin: 0 20px;
+    }
+}

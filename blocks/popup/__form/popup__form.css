@@ -1,0 +1,14 @@
+.popup__form {
+    border: 0;
+    border-bottom: solid black 1px;
+    margin: 0 0 30px 0;
+    width: 358px;
+    height: 27px;
+    font-size: 14px;
+}
+
+@media screen and (max-width:696px) {
+    .popup__form {
+        width: 238px;
+    }
+}
