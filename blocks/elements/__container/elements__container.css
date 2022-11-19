@@ -8,9 +8,3 @@
     row-gap: 20px;
     column-gap: 17px;
 }
-
-@media screen and (max-width:696px) {
-    .elements__container {
-        column-gap: 19px;
-    }
-}

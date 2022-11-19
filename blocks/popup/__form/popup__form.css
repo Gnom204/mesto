@@ -1,10 +1,15 @@
 .popup__form {
     border: 0;
-    border-bottom: solid black 1px;
+    border-bottom: solid rgba(0, 0, 0, .2) 1px;
     margin: 0 0 30px 0;
     width: 358px;
     height: 27px;
     font-size: 14px;
+    padding: 0 0 12px 0;
+}
+
+.popup__form:last-of-type {
+    margin-bottom: 48px;
 }
 
 @media screen and (max-width:696px) {
