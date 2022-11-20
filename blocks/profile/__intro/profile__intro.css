@@ -6,7 +6,7 @@
 
 @media screen and (max-width:696px) {
     .profile__intro {
-        margin: 0;
+        margin: auto;
         text-align: center;
     }
 }

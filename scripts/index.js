@@ -29,4 +29,5 @@ function formSubmitHandler(evt) {
 
 editButton.addEventListener('click', popupOpen);
 closeButton.addEventListener('click', popupClose);
+// без переменной formsZone не работает изменение профиля
 formsZone.addEventListener('submit', formSubmitHandler);
