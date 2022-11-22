@@ -1,8 +1,7 @@
 let popupElement = document.querySelector('.popup');
 let editButton = document.querySelector('.profile__edit-button');
 let closeButton = document.querySelector('.popup__close');
-let formsZone = document.querySelector('form');
-let formElement = document.querySelector('.popup__form');
+let formElement = document.querySelector('.popup__forms');
 let nameInput = document.querySelector('.popup__form_type_name');
 let nameDescription = document.querySelector('.popup__form_type_description');
 let userName = document.querySelector('.profile__title');
@@ -29,5 +28,4 @@ function formSubmitHandler(evt) {
 
 editButton.addEventListener('click', popupOpen);
 closeButton.addEventListener('click', popupClose);
-// без переменной formsZone не работает изменение профиля
-formsZone.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', formSubmitHandler);
