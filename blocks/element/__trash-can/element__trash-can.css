@@ -1,0 +1,16 @@
+.element__trash-can {
+    width: 18px;
+    height: 19px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../../../images/svg/DeleteButton.svg);
+    position: absolute;
+    top: 5%;
+    left: 87%;
+    transition: opacity 1s ease;
+}
+
+.element__trash-can:hover {
+    cursor: pointer;
+    opacity: 60%;
+}

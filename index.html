@@ -27,48 +27,6 @@
         </section>
         <section class="elements">
             <ul class="elements__container">
-                <li class="element">
-                    <img src="./images/castle.png" alt="Разрушенная церковь на фоне гор" class="element__img">
-                    <div class="element__group">
-                        <h2 class="element__heading">Карачаевск</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/field.png" alt="красивый вид на горы с поля" class="element__img">
-                    <div class="element__group">
-                        <h2 class="element__heading">Гора Эльбрус</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/mountain.png" alt="Фотография острой горы" class="element__img">
-                    <div class="element__group">
-                        <h2 class="element__heading">Домбай</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/field.png" alt="красивый вид на горы с поля" class="element__img">
-                    <div class="element__group">
-                        <h2 class="element__heading">Гора Эльбрус</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/mountain.png" alt="Фотография острой горы" class="element__img">
-                    <div class="element__group">
-                        <h2 class="element__heading">Домбай</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/castle.png" alt="Разрушенная церковь на фоне гор" class="element__img">
-                    <div class="element__group">
-                        <h2 class="element__heading">Карачаево-Черкесск</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </li>
             </ul>
         </section>
     </main>
@@ -87,7 +45,39 @@
             </form>
         </div>
     </section>
-    <script src="./scripts/index.js"></script>
+    <section class="popup" id="popupAddCard">
+        <div class="popup__container">
+            <button type="button" aria-label="Закрыть" class="popup__close" id="popupAddCardClose"></button>
+            <h2 class="popup__heading">Новое место</h2>
+            <form name="popup__forms" id="popupAddCardForms" class="popup__forms" method="get" action="#">
+                <input type="text" placeholder="Название" id="popupAddCardTitle" name="popup__name"
+                    class="popup__form popup__form_type_name">
+                <input type="text" placeholder="Ссылка на картинку" id="popupAddCardLink" name="popup__description"
+                    class="popup__form popup__form_type_description">
+                <button class="popup__save-button" id="popupCreateButton" aria-label="Сохранить"
+                    type="submit">Сохранить</button>
+            </form>
+        </div>
+    </section>
+    <section class="popup" id="popup-img">
+        <div class="popup__picture-container">
+            <button type="button" aria-label="Закрыть" id="closeBigImg" class="popup__close popup__close_type_popup-img"
+                id="popupAddCardClose"></button>
+            <img src="#" alt="" class="popup__picture">
+            <p class="popup__description"></p>
+        </div>
+    </section>
+    <script src="./scripts/index.js" defer></script>
+    <template id="card-template">
+        <li class="element">
+            <div class="element__trash-can"></div>
+            <img src="#" class="element__img">
+            <div class="element__group">
+                <h2 class="element__heading"></h2>
+                <button type="button" class="element__like"></button>
+            </div>
+        </li>
+    </template>
 </body>
 
 </html>
