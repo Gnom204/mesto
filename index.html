@@ -34,7 +34,7 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <!-- Попап -->
-    <section class="popup">
+    <section class="popup profile-popup">
         <div class="popup__container">
             <button type="button" aria-label="Закрыть" class="popup__close"></button>
             <h2 class="popup__heading">Редактировать профиль</h2>
@@ -45,21 +45,21 @@
             </form>
         </div>
     </section>
-    <section class="popup" id="popupAddCard">
+    <section class="popup popup-AddCard">
         <div class="popup__container">
             <button type="button" aria-label="Закрыть" class="popup__close" id="popupAddCardClose"></button>
             <h2 class="popup__heading">Новое место</h2>
-            <form name="popup__forms" id="popupAddCardForms" class="popup__forms" method="get" action="#">
-                <input type="text" placeholder="Название" id="popupAddCardTitle" name="popup__name"
+            <form name="popup__AddCardforms" id="popupAddCardForms" class="popup__forms" method="get" action="#">
+                <input type="text" placeholder="Название" id="popupAddCardTitle" name="popupAddCard__name"
                     class="popup__form popup__form_type_name">
-                <input type="text" placeholder="Ссылка на картинку" id="popupAddCardLink" name="popup__description"
-                    class="popup__form popup__form_type_description">
+                <input type="text" placeholder="Ссылка на картинку" id="popupAddCardLink"
+                    name="popupAddCard__description" class="popup__form popup__form_type_description">
                 <button class="popup__save-button" id="popupCreateButton" aria-label="Сохранить"
                     type="submit">Сохранить</button>
             </form>
         </div>
     </section>
-    <section class="popup" id="popup-img">
+    <section class="popup popup-img">
         <div class="popup__picture-container">
             <button type="button" aria-label="Закрыть" id="closeBigImg"
                 class="popup__close popup__close_type_popup-img"></button>
