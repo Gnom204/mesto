@@ -114,7 +114,6 @@ function presentData() {
     nameInput.value = userName.textContent;
     nameDescription.value = userDescription.textContent;
 }
-presentData()
 // Универсальное открытие и закрытие попапов
 function openPopup(popup) {
     popup.classList.add('popup_is-open');
@@ -133,5 +132,7 @@ closeButtons.forEach((button) => {
 // События
 popupAddCardForms.addEventListener('submit', handleSubmitAddCardForm)
 addButton.addEventListener('click', () => openPopup(popupAddCard));
-editButton.addEventListener('click', () => openPopup(profilePopup));
-formElement.addEventListener('submit', handleProfileFormSubmit);
+editButton.addEventListener('click', () => {
+    openPopup(profilePopup)
+    presentData()
+}); formElement.addEventListener('submit', handleProfileFormSubmit);
