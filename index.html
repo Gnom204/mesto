@@ -39,8 +39,12 @@
             <button type="button" aria-label="Закрыть" class="popup__close"></button>
             <h2 class="popup__heading">Редактировать профиль</h2>
             <form name="popup__forms" class="popup__forms" method="get" action="#">
-                <input type="text" name="popup__name" class="popup__form popup__form_type_name">
-                <input type="text" name="popup__description" class="popup__form popup__form_type_description">
+                <input required type="text" name="popup__name" minlength="2" maxlength="40" id="profile-name"
+                    class="popup__form popup__form_type_name">
+                <span class="popup__error" id="profile-name-error"></span>
+                <input required type="text" name="popup__description" id="popup-description" minlength="2"
+                    maxlength="200" class="popup__form popup__form_type_description">
+                <span class="popup__error" id="popup-description-error"></span>
                 <button class="popup__save-button" aria-label="Сохранить" type="submit">Сохранить</button>
             </form>
         </div>
@@ -50,12 +54,14 @@
             <button type="button" aria-label="Закрыть" class="popup__close" id="popupAddCardClose"></button>
             <h2 class="popup__heading">Новое место</h2>
             <form name="popup__AddCardforms" id="popupAddCardForms" class="popup__forms" method="get" action="#">
-                <input type="text" placeholder="Название" id="popupAddCardTitle" name="popupAddCard__name"
-                    class="popup__form popup__form_type_name">
-                <input type="text" placeholder="Ссылка на картинку" id="popupAddCardLink"
+                <input required minlength="2" maxlength="30" type="text" placeholder="Название" id="popupAddCardTitle"
+                    name="popupAddCard__name" class="popup__form popup__form_type_name">
+                <span class="popup__error" id="popupAddCardTitle-error"></span>
+                <input required type="url" minlength="2" placeholder="Ссылка на картинку" id="popupAddCardLink"
                     name="popupAddCard__description" class="popup__form popup__form_type_description">
+                <span class="popup__error" id="popupAddCardLink-error"></span>
                 <button class="popup__save-button" id="popupCreateButton" aria-label="Сохранить"
-                    type="submit">Сохранить</button>
+                    type="submit">Создать</button>
             </form>
         </div>
     </section>
@@ -67,7 +73,8 @@
             <p class="popup__description"></p>
         </div>
     </section>
-    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/index.js" type="module" defer></script>
+    <script src="./scripts/validate.js"></script>
     <template id="card-template">
         <li class="element">
             <div class="element__trash-can"></div>

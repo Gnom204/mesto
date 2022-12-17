@@ -1,3 +1,5 @@
+import initialCards from "./data.js";
+
 const profilePopup = document.querySelector('.profile-popup');// Попап
 const editButton = document.querySelector('.profile__edit-button');//Кнопка открытия попапа
 const closeButtons = document.querySelectorAll('.popup__close');//Кнопка закрытия попапа
@@ -19,33 +21,7 @@ const popupBigImg = document.querySelector('.popup-img');
 const bigImg = document.querySelector('.popup__picture');
 const bigImgTitle = document.querySelector('.popup__description');
 const closeButtonBigImg = document.querySelector('#closeBigImg')
-// Массив из 6 карточек
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
+const popups = [...document.querySelectorAll('.popup')];
 
 // Шаблон
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.element');
@@ -129,6 +105,19 @@ closeButtons.forEach((button) => {
     // устанавливаем обработчик закрытия на крестик
     button.addEventListener('click', () => closePopup(popup));
 });
+// Закрытие попапа нажатием на Esc
+
+
+
+// Закрытие поапа кликом на оверлей
+popups.forEach((popup) => {
+    const closePopupOnOverlay = (evt) => {
+        if (evt.target === evt.currentTarget) {
+            closePopup(evt.target)
+        }
+    }
+    popup.addEventListener('click', (evt) => closePopupOnOverlay(evt))
+})
 // События
 popupAddCardForms.addEventListener('submit', handleSubmitAddCardForm)
 addButton.addEventListener('click', () => openPopup(popupAddCard));
