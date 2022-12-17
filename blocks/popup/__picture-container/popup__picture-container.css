@@ -1,0 +1,19 @@
+.popup__picture-container {
+    position: relative;
+    max-width: 816px;
+    max-height: 540px;
+}
+
+
+@media screen and (max-width:916px) {
+    .popup__picture-container {
+        max-width: 540px;
+    }
+}
+
+@media screen and (max-width:696px) {
+    .popup__picture-container {
+        max-width: 240px;
+        height: 300px;
+    }
+}

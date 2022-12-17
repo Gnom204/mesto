@@ -4,4 +4,6 @@
     background-color: black;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }

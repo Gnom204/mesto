@@ -9,9 +9,23 @@
     opacity: 1;
     color: white;
     align-items: center;
+    padding: 0;
+    margin: 31px 0 37px 0;
+    font-size: 18px;
+    line-height: 21px;
+    border: 0;
 }
 
 .popup__save-button:hover {
     opacity: 80%;
     cursor: pointer;
+}
+
+@media screen and (max-width:696px) {
+    .popup__save-button {
+        margin: 31px 0 25px 0;
+        font-size: 14px;
+        line-height: 16px;
+        height: 46px;
+    }
 }

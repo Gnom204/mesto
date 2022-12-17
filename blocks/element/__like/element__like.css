@@ -4,9 +4,14 @@
     margin: 0 20px 0 0;
     transition: opacity 1s ease;
     object-fit: contain;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(../../../images/svg/heart.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .element__like:hover {
-    opacity: 60%;
+    opacity: 50%;
     cursor: pointer;
 }

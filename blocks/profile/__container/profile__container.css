@@ -1,10 +1,12 @@
 .profile__container {
     display: flex;
     align-items: center;
+    margin-bottom: 8px;
 }
 
 @media screen and (max-width:696px) {
     .profile__container {
-        margin: 22px 0 0 30px;
+        justify-content: center;
+        margin: 26px 0 7px 26px;
     }
 }
