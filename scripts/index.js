@@ -106,17 +106,21 @@ closeButtons.forEach((button) => {
     button.addEventListener('click', () => closePopup(popup));
 });
 // Закрытие попапа нажатием на Esc
-
-
-
+popups.forEach((popup) => {
+    const closePopupOnEsc = (evt) => {
+        if (evt.key === 'Escape') {
+            closePopup(popup)
+        }
+    }
+    document.addEventListener('keydown', (evt) => closePopupOnEsc(evt));
+})
 // Закрытие поапа кликом на оверлей
 popups.forEach((popup) => {
     const closePopupOnOverlay = (evt) => {
         if (evt.target === evt.currentTarget) {
-            closePopup(evt.target)
         }
     }
-    popup.addEventListener('click', (evt) => closePopupOnOverlay(evt))
+    popup.addEventListener('click', (popup) => closePopupOnOverlay(popup))
 })
 // События
 popupAddCardForms.addEventListener('submit', handleSubmitAddCardForm)
