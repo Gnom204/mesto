@@ -1,5 +1,5 @@
 # Проект: Место
-### [Ссылка на проект:](https://gnom204.github.io/mesto/)
+### [Ссылка на проект:](https://gnom204.github.io/mesto/) Ссылка не появляется в gh-pages
 ### Обзор
 
 * Figma
