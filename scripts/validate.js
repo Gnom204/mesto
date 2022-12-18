@@ -7,7 +7,11 @@ const checkAllInput = (inputs, saveBtn, config) => {
     addButtonDisable(saveBtn, isFormValid, config);
 }
 // Отключение кнопки
-
+function offSaveButton() {
+    const submitButton = document.querySelector('.popup__save-button');
+    submitButton.classList.add('popup__save-button_disabled')
+}
+offSaveButton()
 
 const addButtonDisable = (saveBtn, isFormValid, config) => {
     if (!isFormValid) {

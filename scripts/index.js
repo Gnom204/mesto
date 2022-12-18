@@ -59,12 +59,9 @@ const handleDeleteCard = (evt) => {
     evt.target.closest('.element').remove();
 };
 
-function offSaveButton(popup) {
-
-    const submitButton = popup.querySelector('.popup__save-button');
-
+function offSaveButton() {
+    const submitButton = document.querySelector('.popup__save-button');
     submitButton.classList.add('popup__save-button_disabled')
-
 }
 
 const handleSubmitAddCardForm = (event) => {
@@ -102,14 +99,14 @@ function presentData() {
 // Универсальное открытие и закрытие попапов
 function openPopup(popup) {
     popup.classList.add('popup_is-open');
-    document.addEventListener('keydown', closePopupOnEsc(evt));
-    popup.addEventListener('click', closePopupOnOverlay(popup));
+    document.addEventListener('keydown', closePopupOnEsc);
+    popup.addEventListener('click', closePopupOnOverlay);
 };
 
 function closePopup(popup) {
     popup.classList.remove('popup_is-open');
-    popup.removeEventListener('click', closePopupOnOverlay(popup))
-    document.removeEventListener('keydown', closePopupOnEsc(evt));
+    popup.removeEventListener('click', closePopupOnOverlay)
+    document.removeEventListener('keydown', closePopupOnEsc);
 };
 // Отключение кнопки
 closeButtons.forEach((button) => {
