@@ -1,19 +1,21 @@
 // Проверка всех форм на валидность
-const checkAllInput = (inputs, saveBtn) => {
+const checkAllInput = (inputs, saveBtn, config) => {
     const isFormValid = inputs.every(input => {
         return input.validity.valid;
     })
-    addButtonDisable(saveBtn, isFormValid);
+    addButtonDisable(saveBtn, isFormValid, config);
 }
 // Отключение кнопки
-const addButtonDisable = (saveBtn, isFormValid,) => {
+const addButtonDisable = (saveBtn, isFormValid, config) => {
     if (!isFormValid) {
         saveBtn.forEach(btn => {
             btn.disabled = true;
+            btn.classList.add(config.inactiveButtonClass)
         })
     } else {
         saveBtn.forEach(btn => {
             btn.disabled = false;
+            btn.classList.remove(config.inactiveButtonClass)
         })
     }
 }
@@ -35,15 +37,12 @@ const enableValidation = (config) => {
     forms.forEach(form => {
         const inputs = [...form.querySelectorAll(config.inputSelector)];
         const saveBtn = [...document.querySelectorAll(config.submitButtonSelector)];
-
-
         inputs.forEach(input => {
             input.addEventListener('input', () => {
                 checkInputValidity(input, config);
-                checkAllInput(inputs, saveBtn,);
+                checkAllInput(inputs, saveBtn, config);
             })
         })
-
     })
 }
 
@@ -52,5 +51,6 @@ enableValidation({
     inputSelector: '.popup__form',
     submitButtonSelector: '.popup__save-button',
     inputErrorClass: 'popup__form_type_error',
-    errorClass: 'popup__error'
+    errorClass: 'popup__error',
+    inactiveButtonClass: 'popup__save-button_disabled',
 }); 

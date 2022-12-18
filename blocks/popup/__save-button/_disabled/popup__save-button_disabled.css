@@ -1,4 +1,4 @@
-.popup__save-button:disabled {
+.popup__save-button_disabled {
     color: #000000;
     background-color: transparent;
     border: 1px solid #000000;
