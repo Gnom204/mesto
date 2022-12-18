@@ -59,6 +59,14 @@ const handleDeleteCard = (evt) => {
     evt.target.closest('.element').remove();
 };
 
+function offSaveButton(popup) {
+
+    const submitButton = popup.querySelector('.popup__save-button');
+
+    submitButton.classList.add('popup__save-button_disabled')
+
+}
+
 const handleSubmitAddCardForm = (event) => {
     event.preventDefault();
     renderCard({
@@ -68,6 +76,7 @@ const handleSubmitAddCardForm = (event) => {
     event.target.reset()
 
     closePopup(popupAddCard);
+    offSaveButton(popupAddCard);
 };
 
 const renderCard = (dataCard) => {
@@ -94,7 +103,7 @@ function presentData() {
 function openPopup(popup) {
     popup.classList.add('popup_is-open');
     document.addEventListener('keydown', closePopupOnEsc(evt));
-    popup.addEventListener('click', closePopupOnOverlay(evt));
+    popup.addEventListener('click', closePopupOnOverlay(popup));
 };
 
 function closePopup(popup) {

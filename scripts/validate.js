@@ -1,3 +1,4 @@
+
 // Проверка всех форм на валидность
 const checkAllInput = (inputs, saveBtn, config) => {
     const isFormValid = inputs.every(input => {
@@ -6,10 +7,7 @@ const checkAllInput = (inputs, saveBtn, config) => {
     addButtonDisable(saveBtn, isFormValid, config);
 }
 // Отключение кнопки
-function offSaveButton(popup, config) {
-    const submitButton = popup.querySelector(config.submitButtonSelector);
-    submitButton.classList.add(config.inactiveButtonClass)
-}
+
 
 const addButtonDisable = (saveBtn, isFormValid, config) => {
     if (!isFormValid) {
@@ -49,7 +47,6 @@ const enableValidation = (config) => {
             })
         })
     })
-    offSaveButton()
 }
 
 enableValidation({
