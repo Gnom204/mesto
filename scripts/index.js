@@ -94,14 +94,14 @@ function presentData() {
 // Универсальное открытие и закрытие попапов
 function openPopup(popup) {
     popup.classList.add('popup_is-open');
-    document.addEventListener('keydown', (evt) => closePopupOnEsc(evt));
-    popup.addEventListener('click', (popup) => closePopupOnOverlay(popup));
+    document.addEventListener('keydown', closePopupOnEsc(evt));
+    popup.addEventListener('click', closePopupOnOverlay(popup));
 };
 
 function closePopup(popup) {
     popup.classList.remove('popup_is-open');
-    popup.removeEventListener('click', (popup) => closePopupOnOverlay(popup))
-    document.removeEventListener('keydown', (evt) => closePopupOnEsc(evt));
+    popup.removeEventListener('click', closePopupOnOverlay(popup))
+    document.removeEventListener('keydown', closePopupOnEsc(evt));
 };
 // Отключение кнопки
 function offSaveButton(popup) {

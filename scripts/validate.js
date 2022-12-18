@@ -6,6 +6,11 @@ const checkAllInput = (inputs, saveBtn, config) => {
     addButtonDisable(saveBtn, isFormValid, config);
 }
 // Отключение кнопки
+function offSaveButton(popup, config) {
+    const submitButton = popup.querySelector(config.submitButtonSelector);
+    submitButton.classList.add(config.inactiveButtonClass)
+}
+
 const addButtonDisable = (saveBtn, isFormValid, config) => {
     if (!isFormValid) {
         saveBtn.forEach(btn => {
