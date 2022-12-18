@@ -25,16 +25,16 @@
             </div>
             <button type="button" aria-label="Добавить" class="profile__add-button"></button>
         </section>
-        <section class="elements">
+        <div class="elements">
             <ul class="elements__container">
             </ul>
-        </section>
+        </div>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <!-- Попап -->
-    <section class="popup profile-popup">
+    <div class="popup profile-popup">
         <div class="popup__container">
             <button type="button" aria-label="Закрыть" class="popup__close"></button>
             <h2 class="popup__heading">Редактировать профиль</h2>
@@ -50,8 +50,8 @@
                     type="submit">Сохранить</button>
             </form>
         </div>
-    </section>
-    <section class="popup popup-AddCard">
+    </div>
+    <div class="popup popup-AddCard">
         <div class="popup__container">
             <button type="button" aria-label="Закрыть" class="popup__close" id="popupAddCardClose"></button>
             <h2 class="popup__heading">Новое место</h2>
@@ -66,15 +66,15 @@
                     aria-label="Сохранить" type="submit">Создать</button>
             </form>
         </div>
-    </section>
-    <section class="popup popup-img">
+    </div>
+    <div class="popup popup-img">
         <div class="popup__picture-container">
             <button type="button" aria-label="Закрыть" id="closeBigImg"
                 class="popup__close popup__close_type_popup-img"></button>
             <img src=" #" alt="" class="popup__picture">
             <p class="popup__description"></p>
         </div>
-    </section>
+    </div>
 
     <template id="card-template">
         <li class="element">
@@ -86,7 +86,7 @@
             </div>
         </li>
     </template>
-    <script src="./scripts/index.js" type="module" defer></script>
+    <script src="./scripts/index.js" type="module"></script>
     <script src="./scripts/validate.js"></script>
 </body>
 

@@ -49,6 +49,7 @@ const enableValidation = (config) => {
             })
         })
     })
+    offSaveButton()
 }
 
 enableValidation({

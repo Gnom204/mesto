@@ -68,7 +68,6 @@ const handleSubmitAddCardForm = (event) => {
     event.target.reset()
 
     closePopup(popupAddCard);
-    offSaveButton(popupAddCard)
 };
 
 const renderCard = (dataCard) => {
@@ -95,7 +94,7 @@ function presentData() {
 function openPopup(popup) {
     popup.classList.add('popup_is-open');
     document.addEventListener('keydown', closePopupOnEsc(evt));
-    popup.addEventListener('click', closePopupOnOverlay(popup));
+    popup.addEventListener('click', closePopupOnOverlay(evt));
 };
 
 function closePopup(popup) {
@@ -104,11 +103,6 @@ function closePopup(popup) {
     document.removeEventListener('keydown', closePopupOnEsc(evt));
 };
 // Отключение кнопки
-function offSaveButton(popup) {
-    const submitButton = popup.querySelector('.popup__save-button');
-    submitButton.classList.add('popup__save-button_disabled')
-}
-
 closeButtons.forEach((button) => {
     // находим 1 раз ближайший к крестику попап 
     const popup = button.closest('.popup');
