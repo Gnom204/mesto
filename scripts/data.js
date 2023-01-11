@@ -25,5 +25,12 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-
-export default initialCards
+const enableValidation = {
+    formSelector: '.popup__forms',
+    inputSelector: '.popup__form',
+    submitButtonSelector: '.popup__save-button',
+    inputErrorClass: 'popup__form_type_error',
+    errorClass: 'popup__error',
+    inactiveButtonClass: 'popup__save-button_disabled',
+};
+export { initialCards, enableValidation };
