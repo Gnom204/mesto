@@ -10,13 +10,13 @@ export class Card {
         bigImg: '.popup__picture',
         popupBigImg: '.popup-img'
     }
-    constructor(data, handlePopupBigImg) {
+    constructor(template, data, handlePopupBigImg) {
+        this._template = template
         this._data = data
         this._handlePopupBigImg = handlePopupBigImg
     }
     _getTemplate() {
-        const cardElement = document
-            .querySelector(Card.selectors.template)
+        const cardElement = this._template
             .content
             .querySelector(Card.selectors.card)
             .cloneNode(true);
@@ -29,7 +29,7 @@ export class Card {
         this._likeButton = this._element.querySelector(Card.selectors.likeButton)
         this._image = this._element.querySelector(Card.selectors.image)
         this._name = this._element.querySelector(Card.selectors.name)
-
+        this._image.alt = this._data.name
         this._image.src = this._data.link;
         this._name.textContent = this._data.name
         this._setEventListeners();
@@ -41,15 +41,14 @@ export class Card {
         evt.stopPropagation();
         evt.target.closest(Card.selectors.card).remove();
     }
-    _handleLike(likeElement) {
-        likeElement.stopPropagation();
-        likeElement.target.classList.toggle(Card.selectors.activeLike);
+    _handleLike(event) {
+        event.classList.toggle(Card.selectors.activeLike);
     }
 
 
     _setEventListeners() {
         this._deleteButton.addEventListener('click', this._handleDeleteCard);
-        this._likeButton.addEventListener('click', this._handleLike);
-        this._element.addEventListener('click', () => this._handlePopupBigImg(this._data));
+        this._likeButton.addEventListener('click', () => this._handleLike(this._likeButton));
+        this._image.addEventListener('click', () => this._handlePopupBigImg(this._data));
     }
 }

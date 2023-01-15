@@ -25,7 +25,7 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-const enableValidation = {
+const validationConfig = {
     formSelector: '.popup__forms',
     inputSelector: '.popup__form',
     submitButtonSelector: '.popup__save-button',
@@ -33,4 +33,4 @@ const enableValidation = {
     errorClass: 'popup__error',
     inactiveButtonClass: 'popup__save-button_disabled',
 };
-export { initialCards, enableValidation };
+export { initialCards, validationConfig };

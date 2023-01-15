@@ -9,7 +9,7 @@ export class FormValidation {
         this._saveBtn = this._validForm.querySelector(this._submitButtonSelector);
     }
     // Приватные методы включения кнопок и убирания ошибки
-    _buttonDisabledOff() {
+    _disabledButtonOff() {
         this._saveBtn.classList.remove(this._inactiveButtonClass);
         this._saveBtn.disabled = false;
     }
@@ -23,7 +23,7 @@ export class FormValidation {
         error.classList.add(this._inputErrorClass);
         input.classList.add(this._inputSelector);
     }
-    _buttonDisabledOn() {
+    disabledButtonOn() {
         this._saveBtn.classList.add(this._inactiveButtonClass);
         this._saveBtn.disabled = true;
     }
@@ -47,14 +47,16 @@ export class FormValidation {
             return input.validity.valid;
         })
         if (!isFormValid) {
-            this._buttonDisabledOn()
+            this.disabledButtonOn()
         } else {
-            this._buttonDisabledOff()
+            this._disabledButtonOff()
         }
     }
     _setEventListeners() {
-        this._validForm.addEventListener('input', () => this._regulationErrors());
-        this._validForm.addEventListener('input', () => this._regulationButtons());
+        this._validForm.addEventListener('input', () => {
+            this._regulationErrors();
+            this._regulationButtons();
+        });
     }
 
     enableValidation() {
