@@ -16,7 +16,7 @@ export class Card {
         this._handlePopupBigImg = handlePopupBigImg
     }
     _getTemplate() {
-        const cardElement = this._template
+        const cardElement = document.querySelector(this._template)
             .content
             .querySelector(Card.selectors.card)
             .cloneNode(true);

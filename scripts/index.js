@@ -3,7 +3,6 @@ import { validationConfig } from "./data.js";
 import { Card } from "./Card.js";
 import { FormValidation } from "./FormValidation.js"
 
-const cardTemplate = document.querySelector('#card-template');
 const profilePopup = document.querySelector('.profile-popup');// Попап
 const buttonOpenEditProfileForm = document.querySelector('.profile__edit-button');//Кнопка открытия попапа
 const closeButtons = document.querySelectorAll('.popup__close');//Кнопка закрытия попапа
@@ -32,7 +31,7 @@ function presentDataPopup(data) {
 // Рендер карточек
 
 function renderCard(item) {
-    const card = new Card(cardTemplate, item, presentDataPopup);
+    const card = new Card('#card-template', item, presentDataPopup);
     const cardElement = card.generateCard();
 
     // Добавляем в DOM
@@ -49,7 +48,7 @@ const handleSubmitAddCardForm = (event) => {
         name: popupAddCardTitle.value,
         link: popupAddCardLink.value
     });
-    formAddCardIsValid.disabledButtonOn();
+    formAddCardIsValid.disablingButtonOn();
     closePopup(popupAddCard);
 };
 
