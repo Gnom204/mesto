@@ -1,12 +1,13 @@
 import { buttonOpenAddCardForm, buttonOpenEditProfileForm, initialCards, nameDescription, nameInput, popupAddCardLink, popupAddCardTitle } from "../utils/constants.js";
 import { validationConfig } from "../utils/constants.js";
-import { Card } from "../components/Card.js";
+import { Card } from "../components/Card.js"
 import { FormValidation } from "../components/FormValidation.js"
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { cardContainer, formEditProfile } from "../utils/constants.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Section } from "../components/Section.js";
+import './../pages/index.css'
 
 const section = new Section({
     items: initialCards,
