@@ -24,11 +24,11 @@ const popupWithProfileForm = new PopupWithForm('.profile-popup', {
             popupWithProfileForm.close()
         }
 })
-const popupWithForm = new PopupWithForm('.popup-AddCard', {
+const popupAddCard = new PopupWithForm('.popup-AddCard', {
     handleSubmitForm:
         (item) => {
             renderCard(item);
-            popupWithForm.close()
+            popupAddCard.close()
         }
 })
 
@@ -47,11 +47,11 @@ const profileFormIsValid = new FormValidation(validationConfig, formEditProfile)
 formAddCardIsValid.enableValidation();
 profileFormIsValid.enableValidation();
 // События
-popupWithForm.setEventListeners();
+popupAddCard.setEventListeners();
 popupWithImage.setEventListeners();
 popupWithProfileForm.setEventListeners();
 buttonOpenAddCardForm.addEventListener('click', () => {
-    popupWithForm.open()
+    popupAddCard.open()
     formAddCardIsValid.disablingButtonOn()
 })
 buttonOpenEditProfileForm.addEventListener('click', () => {
