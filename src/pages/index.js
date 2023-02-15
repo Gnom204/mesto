@@ -7,8 +7,16 @@ import { cardContainer, formEditProfile } from "../utils/constants.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Section } from "../components/Section.js";
+import { Api } from "../components/Api.js"
 import './../pages/index.css'
 
+const api = new Api({
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-59',
+    headers: {
+        authorization: 'cf1f2fd8-5312-427b-b17f-83a02fd1127b',
+        'Content-Type': 'application/json'
+    }
+});
 const section = new Section({
     items: initialCards,
     renderer: (item) => renderCard(item)
@@ -20,15 +28,17 @@ const userInfo = new UserInfo({
 const popupWithProfileForm = new PopupWithForm('.profile-popup', {
     handleSubmitForm:
         (input) => {
-            userInfo.setUserInfo(input.userName, input.userDescription)
-            popupWithProfileForm.close()
+            userInfo.setUserInfo(input.userName, input.userDescription);
+            popupWithProfileForm.close();
+            profileFormIsValid.disablingButtonOn();
         }
 })
 const popupAddCard = new PopupWithForm('.popup-AddCard', {
     handleSubmitForm:
         (item) => {
             renderCard(item);
-            popupAddCard.close()
+            popupAddCard.close();
+            formAddCardIsValid.disablingButtonOn();
         }
 })
 

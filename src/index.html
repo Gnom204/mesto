@@ -74,16 +74,30 @@
         </div>
     </div>
 
-    <template id="card-template">
-        <li class="element">
-            <div class="element__trash-can"></div>
-            <img src="#" class="element__img">
-            <div class="element__group">
-                <h2 class="element__heading"></h2>
-                <button type="button" class="element__like"></button>
-            </div>
-        </li>
-    </template>
+    <div class="popup avatar-popup">
+        <div class="popup__container">
+            <button type="button" aria-label="Закрыть" class="popup__close"></button>
+            <h2 class="popup__heading">Обновить аватар</h2>
+            <form name="popup__forms" id="profile-form" class="popup__forms" method="get" action="#">
+                <input required type="url" placeholder="Ссылка на картинку" id="popupAddCardLink" name="link"
+                    class="popup__form popup__form_type_description">
+                <span class="popup__error" id="popupAddCardLink-error"></span>
+                <button disabled class="popup__save-button_disabled popup__save-button" id="popupCreateButton" <button
+                    disabled class="popup__save-button popup__save-button_disabled" aria-label="Сохранить"
+                    type="submit">Сохранить</button>
+            </form>
+        </div>
+
+        <template id="card-template">
+            <li class="element">
+                <div class="element__trash-can"></div>
+                <img src="#" class="element__img">
+                <div class="element__group">
+                    <h2 class="element__heading"></h2>
+                    <button type="button" class="element__like"></button>
+                </div>
+            </li>
+        </template>
 </body>
 
 </html>

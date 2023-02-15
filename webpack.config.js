@@ -8,11 +8,11 @@ module.exports = {
     },
     output: {
         filename: "bundle.js",
-        path: path.resolve(__dirname, 'build')
+        path: path.resolve(__dirname, 'dist')
     },
     mode: "development",
     devServer: {
-        static: path.resolve(__dirname, 'build'),
+        static: path.resolve(__dirname, 'dist'),
         open: true
     },
 
