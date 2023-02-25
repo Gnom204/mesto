@@ -12,18 +12,11 @@ export class PopupForDelete extends Popup {
         this._setEventListeners();
         super.open()
     }
-    close() {
-        super.close()
-    }
-    _deleteElement() {
-        this._card = null;
-        this._id = null
-    }
+
     _setEventListeners() {
         this._button.addEventListener('click', () => {
             this._handleDeleteCard(this._card, this._id)
             console.log(this._card, this._id)
-            this._deleteElement();
             this.close()
         })
         super.setEventListeners()

@@ -56,4 +56,5 @@ export const bigImgTitle = document.querySelector('.popup__description');
 export const Esc = 'Escape';
 export const avatar = document.querySelector('.profile__avatar-bg')
 export const avatarLink = document.querySelector('.profile__avatar')
-export const formAvatarPopup = document.querySelector('#avatar-form')
+export const formAvatarPopup = document.querySelector('#avatar-form');
+export const elementLikeAmount = document.querySelector('.element__like-amount')

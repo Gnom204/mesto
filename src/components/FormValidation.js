@@ -31,6 +31,7 @@ export class FormValidation {
     _regulateErrors() {
         this._inputs.forEach((input) => {
             const error = this._validForm.querySelector(`#${input.id}-error`);
+            console.log(error)
             if (input.validity.valid) {
                 error.textContent = '';
                 input.classList.remove(this._inputErrorClass);

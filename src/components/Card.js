@@ -1,13 +1,13 @@
 export class Card {
-    constructor(template, data, handlePopupBigImg, handleDeleteCard, { handleLikeCardFun, handleDislikeCardFun }) {
+    constructor(template, data, userId, handlePopupBigImg, { handleDeleteCard, handleLikeCardFun, handleDislikeCardFun }) {
+        this._userId = userId
         this._template = template
         this._data = data
+        this._somethingId = data.owner._id
         this._handlePopupBigImg = handlePopupBigImg
         this._handleDeleteCard = handleDeleteCard
         this._handleLikeCardFun = handleLikeCardFun
         this._handleDislikeCardFun = handleDislikeCardFun
-        this._allLikes = data.likes;
-        this._likesCount = data.likes.length;
         this._selectors = {
             template: '#card-template',
             image: '.element__img',
@@ -39,17 +39,31 @@ export class Card {
         this._image.src = this._data.link;
         this._name.textContent = this._data.name
         this._like = this._element.querySelector(this._selectors.likesCount);
-        this._like.textContent = this._likesCount
-        this._somethingId = this._data.owner._id
+        this._allLikes = this._data.likes;
+        this._checkUserLike()
         this._setEventListeners();
-        if (this._isMyLike()) {
-            this._likeButton.classList.add(this._selectors.activeLike)
-        }
+        this._checkUserCard()
+        this._setLikesCount()
+        return this._element
+    }
+    deleteCard = () => {
+        this._element.remove()
+    }
+
+    _checkUserCard() {
         if (this._isNotMyCard()) {
             this._deleteButton.remove()
         }
+    }
 
-        return this._element
+    _checkUserLike() {
+        if (this._isMyLike()) {
+            this._likeButton.classList.add(this._selectors.activeLike)
+        }
+    }
+
+    _setLikesCount() {
+        this._like.textContent = this._allLikes.length
     }
 
     handleDeleteCard(evt) {
@@ -66,11 +80,11 @@ export class Card {
         this._like.textContent = count
     }
     _isMyLike() {
-        return this._allLikes.some((item) => item._id === 'e227fafc6ef9b690d9956113')
+        return this._allLikes.some((item) => item._id === this._userId)
     }
 
     _isNotMyCard() {
-        return (this._somethingId != 'e227fafc6ef9b690d9956113')
+        return (this._somethingId != this._userId)
     }
 
     _setEventListeners() {
