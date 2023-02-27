@@ -1,15 +1,16 @@
 import { Popup } from "./Popup.js";
 
 export class PopupWithForm extends Popup {
-    constructor(popupSelector, { handleSubmitForm }) {
+    constructor(popupSelector, { handleSubmitForm }, disablingButton) {
         super(popupSelector);
         this._handleSubmitForm = handleSubmitForm;
+        this._disablingButton = disablingButton;
         this._form = this._popup.querySelector('.popup__forms');
         this._inputs = this._form.querySelectorAll('.popup__form');
-        this._saveBtn = this._popup.querySelector('.popup__save-button')
     }
-    loading(massage) {
-        this._saveBtn.textContent = massage
+    open() {
+        this._disablingButton
+        super.open()
     }
     _getInputValues() {
         this._inputValues = {}

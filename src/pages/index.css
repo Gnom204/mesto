@@ -46,3 +46,4 @@
 @import url(../blocks/popup/__error/popup__error.css);
 @import url(../blocks/popup/__form/_type/popup__form_type_error.css);
 @import url(../blocks/popup/__save-button/_disabled/popup__save-button_disabled.css);
+@import url(../blocks/popup/_dark/popup_dark.css);

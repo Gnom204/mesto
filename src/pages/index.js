@@ -23,8 +23,7 @@ Promise.all([api.loadingUserInfo(), api.loadingCard()])
     .then(([userData, cards]) => {
         userInfo.setUserInfo(userData.name, userData.about, userData._id);
 
-        avatarLink.src = userData.avatar;
-
+        userInfo.setAvatar(userData)
         section.renderItems(cards);
     })
     .catch(error => console.log(error));
@@ -44,11 +43,13 @@ const popupWithProfileForm = new PopupWithForm('.profile-popup', {
             api.refreshProfileData(input.userName, input.userDescription)
                 .then(res => userInfo.setUserInfo(res.name, res.about))
                 .catch(error => console.log(error))
-                .finally(popupWithProfileForm.loading('Сохранить'))
-            popupWithProfileForm.close();
-            profileFormIsValid.disablingButtonOn();
+                .finally(() => {
+                    popupWithProfileForm.loading('Сохранить')
+                    popupWithProfileForm.close();
+                })
         }
-})
+}, () => profileFormIsValid.disablingButtonOn()
+)
 const popupWithAvatarChange = new PopupWithForm('.avatar-popup', {
     handleSubmitForm:
         (input) => {
@@ -56,14 +57,14 @@ const popupWithAvatarChange = new PopupWithForm('.avatar-popup', {
                 .then((res) => {
                     userInfo.setAvatar(res)
                     popupWithAvatarChange.close()
-                    console.log(input.avatar)
                 })
                 .catch(error => console.log(error))
                 .finally(() => {
                     popupWithAvatarChange.loading('Сохранить')
                 })
         }
-})
+}, () => formAvatarIsValid.disablingButtonOn()
+)
 
 //попап создания карточки
 const popupAddCard = new PopupWithForm('.popup-AddCard', {
@@ -73,13 +74,15 @@ const popupAddCard = new PopupWithForm('.popup-AddCard', {
                 .then(() => {
                     section.addItem(renderCard(item));
                     popupAddCard.close();
-                    formAddCardIsValid.disablingButtonOn();
-                    popupAddCard.loading('Создать')
+                    popupAddCard.loading('Создание...')
                 })
                 .catch(error => { console.log(error) })
+                .finally(() => {
+                    popupAddCard.loading('Создать')
+                })
 
         }
-})
+}, () => formAddCardIsValid.disablingButtonOn())
 
 const popupWithImage = new PopupWithImage('.popup-img');
 
