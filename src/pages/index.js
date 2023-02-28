@@ -70,11 +70,11 @@ const popupWithAvatarChange = new PopupWithForm('.avatar-popup', {
 const popupAddCard = new PopupWithForm('.popup-AddCard', {
     handleSubmitForm:
         (item) => {
+            popupAddCard.loading('Создание...')
             api.addCardOnServer(item.name, item.link)
                 .then(() => {
                     section.addItem(renderCard(item));
                     popupAddCard.close();
-                    popupAddCard.loading('Создание...')
                 })
                 .catch(error => { console.log(error) })
                 .finally(() => {
