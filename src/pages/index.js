@@ -41,11 +41,13 @@ const popupWithProfileForm = new PopupWithForm('.profile-popup', {
     handleSubmitForm:
         (input) => {
             api.refreshProfileData(input.userName, input.userDescription)
-                .then(res => userInfo.setUserInfo(res.name, res.about))
+                .then((res) => {
+                    userInfo.setUserInfo(res.name, res.about)
+                    popupWithProfileForm.close();
+                })
                 .catch(error => console.log(error))
                 .finally(() => {
                     popupWithProfileForm.loading('Сохранить')
-                    popupWithProfileForm.close();
                 })
         }
 }, () => profileFormIsValid.disablingButtonOn()
